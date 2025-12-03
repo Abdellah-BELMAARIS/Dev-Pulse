@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+    <div class="market-card p-5" style="width: 450px;">
+
+        <h2 class="text-center mb-4" style="color: #4dabf7;">Create Account</h2>
+
+        <form method="POST">
+
+            <div class="mb-3">
+                <label class="form-label">Username</label>
+                <input name="username" type="text" class="form-control bg-dark text-light" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input name="email" type="email" class="form-control bg-dark text-light" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input name="password1" type="password" class="form-control bg-dark text-light" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Confirm Password</label>
+                <input name="password2" type="password" class="form-control bg-dark text-light" required>
+            </div>
+
+            <button type="submit" class="btn btn-market w-100 mt-3">Create Account</button>
+
+            <p class="text-center mt-3">
+                <small>Already have an account?
+                    <a href="{{ url_for('login_page') }}" style="color: #4dabf7;">Login</a>
+                </small>
+            </p>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

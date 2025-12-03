@@ -1,0 +1,213 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Available Services - Dev Pulse
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="text-center mb-4" style="color: #4dabf7;">Available Services</h1>
+
+        <div class="market-card p-4 mb-4">
+            <p class="text-center mb-4">Click on <strong>More Info</strong> to know more about the service.</p>
+
+            <table class="table table-dark table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Service ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Barcode</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Hours</th>
+                        <th scope="col">Options</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if items %}
+                        {% for item in items %}
+                            <tr>
+                                <td><strong>{{ item.service }}</strong></td>
+                                <td>{{ item.name }}</td>
+                                <td>{{ item.barcode }}</td>
+                                <td>${{ item.price }}</td>
+                                <td>{{ item.hours }} hours</td>
+                                <td>
+                                    <button class="btn btn-outline-info btn-sm me-2" onclick="showItemDetails({{ item.service }})">
+                                        More Info
+                                    </button>
+                                    <button class="btn btn-outline-success btn-sm" onclick="addToCart({{ item.service }})">
+                                        Add to Cart
+                                    </button>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td colspan="6" class="text-center">No services available</td>
+                        </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="itemDetailsModal" tabindex="-1" aria-labelledby="itemDetailsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content bg-dark text-light">
+            <div class="modal-header border-secondary">
+                <h5 class="modal-title" id="itemDetailsModalLabel">Service Details</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-8">
+                        <h4 id="itemName"></h4>
+                        <p id="itemDescription" class="text-muted"></p>
+
+                        <div class="mt-4">
+                            <h6>Course Information:</h6>
+                            <ul class="list-unstyled">
+                                <li><strong>Instructor:</strong> <span id="itemInstructor"></span></li>
+                                <li><strong>Duration:</strong> <span id="itemHours"></span> hours</li>
+                                <li><strong>Price:</strong> $<span id="itemPrice"></span></li>
+                                <li><strong>Service ID:</strong> <span id="itemService"></span></li>
+                                <li><strong>Barcode:</strong> <span id="itemBarcode"></span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-secondary">
+                            <div class="card-body">
+                                <h5 class="card-title">Quick Actions</h5>
+                                <div class="d-grid gap-2">
+                                    <button class="btn btn-primary" onclick="addToCartFromModal()">
+                                        <i class="bi bi-cart-plus"></i> Add to Cart
+                                    </button>
+                                    <button class="btn btn-outline-light" data-bs-dismiss="modal">
+                                        Close
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+    <div id="cartToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header bg-success text-white">
+            <strong class="me-auto">Cart Updated</strong>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body bg-dark">
+            <span id="cartMessage">Item added to cart!</span>
+        </div>
+    </div>
+</div>
+
+<script>
+// Cart array to store items
+let cart = [];
+
+// Function to show item details in modal
+function showItemDetails(itemId) {
+    fetch(`/item/${itemId}`)
+        .then(response => response.json())
+        .then(data => {
+            // Populate modal with item data
+            document.getElementById('itemName').textContent = data.name;
+            document.getElementById('itemDescription').textContent = data.description;
+            document.getElementById('itemInstructor').textContent = data.instructor;
+            document.getElementById('itemHours').textContent = data.hours;
+            document.getElementById('itemPrice').textContent = data.price;
+            document.getElementById('itemService').textContent = data.service;
+            document.getElementById('itemBarcode').textContent = data.barcode;
+
+            // Store current item ID for Add to Cart from modal
+            document.getElementById('itemDetailsModal').dataset.currentItem = itemId;
+
+            // Show the modal
+            const modal = new bootstrap.Modal(document.getElementById('itemDetailsModal'));
+            modal.show();
+        })
+        .catch(error => {
+            console.error('Error fetching item details:', error);
+            alert('Error loading item details');
+        });
+}
+
+// Function to add item to cart
+function addToCart(itemId) {
+    fetch(`/item/${itemId}`)
+        .then(response => response.json())
+        .then(data => {
+            // Add item to cart array
+            cart.push(data);
+
+            // Update cart count in navbar if exists
+            updateCartCount();
+
+            // Show success message
+            showCartNotification(`${data.name} added to cart!`);
+
+            // Log cart for debugging
+            console.log('Cart updated:', cart);
+        })
+        .catch(error => {
+            console.error('Error adding to cart:', error);
+            alert('Error adding item to cart');
+        });
+}
+
+// Function to add to cart from modal
+function addToCartFromModal() {
+    const itemId = document.getElementById('itemDetailsModal').dataset.currentItem;
+    addToCart(itemId);
+
+    // Close the modal
+    const modal = bootstrap.Modal.getInstance(document.getElementById('itemDetailsModal'));
+    modal.hide();
+}
+
+// Function to update cart count in navbar
+function updateCartCount() {
+    const cartCountElement = document.getElementById('cartCount');
+    if (cartCountElement) {
+        cartCountElement.textContent = cart.length;
+    } else {
+        // Create cart count if it doesn't exist
+        const cartLink = document.querySelector('a[href="#"]');
+        if (cartLink) {
+            cartLink.innerHTML = `<i class="bi bi-cart"></i> Cart (${cart.length})`;
+        }
+    }
+}
+
+// Function to show cart notification
+function showCartNotification(message) {
+    document.getElementById('cartMessage').textContent = message;
+    const toast = new bootstrap.Toast(document.getElementById('cartToast'));
+    toast.show();
+}
+
+// Optional: Initialize cart on page load
+document.addEventListener('DOMContentLoaded', function() {
+    // Load cart from localStorage if available
+    const savedCart = localStorage.getItem('trainingCart');
+    if (savedCart) {
+        cart = JSON.parse(savedCart);
+        updateCartCount();
+    }
+
+    // Save cart to localStorage before page unload
+    window.addEventListener('beforeunload', function() {
+        localStorage.setItem('trainingCart', JSON.stringify(cart));
+    });
+});
+</script>
+{% endblock %}
