@@ -5,24 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f498048d-0bc7-450a-96b3-f7e59cd142df" name="Changes" comment="Dev Pulse">
-      <change afterPath="$PROJECT_DIR$/.idea/My_website.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/website/create_db.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/website/market.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/website/market.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/website/templates/Services.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/website/templates/base.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/website/templates/cart.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/website/templates/dashboard.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/website/templates/home.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/website/templates/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/website/templates/register.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/school_website/create_db.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/school_website/item_stock.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/school_website/market.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/school_website/templates/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/school_website/templates/cart.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/school_website/templates/dashboard.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/school_website/templates/home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/school_website/templates/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/school_website/templates/register.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website/templates/services.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/create_db.py" beforeDir="false" afterPath="$PROJECT_DIR$/website/create_db.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/market.db" beforeDir="false" afterPath="$PROJECT_DIR$/website/market.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/templates/Services.html" beforeDir="false" afterPath="$PROJECT_DIR$/school_website/templates/services.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,23 +47,53 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Python.create_db.executor": "Run",
-    "Python.market.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "D:/MyPythonProjects/TechWithTim_py_Project/My_website/website/templates"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Python.create_db (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.create_db.executor&quot;: &quot;Run&quot;,
+    &quot;Python.item_stock.executor&quot;: &quot;Run&quot;,
+    &quot;Python.market (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.market.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/MyPythonProjects/TechWithTim_py_Project/My_website&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\MyPythonProjects\TechWithTim_py_Project\My_website" />
       <recent name="D:\MyPythonProjects\TechWithTim_py_Project\My_website\website\templates" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\MyPythonProjects\TechWithTim_py_Project\My_website" />
+    </key>
   </component>
-  <component name="RunManager" selected="Python.market">
+  <component name="RunManager" selected="Python.market (1)">
+    <configuration name="create_db (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="My_website" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/school_website" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/school_website/create_db.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="create_db" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="My_website" />
       <option name="ENV_FILES" value="" />
@@ -82,6 +108,50 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/website/create_db.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="item_stock" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="My_website" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/school_website" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/school_website/item_stock.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="market (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="My_website" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/school_website" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/school_website/market.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -114,8 +184,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.market" />
+        <item itemvalue="Python.market (1)" />
+        <item itemvalue="Python.create_db (1)" />
+        <item itemvalue="Python.item_stock" />
         <item itemvalue="Python.create_db" />
+        <item itemvalue="Python.market" />
       </list>
     </recent_temporary>
   </component>
@@ -135,7 +208,27 @@
       <option name="presentableId" value="Default" />
       <updated>1764772681793</updated>
     </task>
+    <task id="LOCAL-00001" summary="Dev Pulse">
+      <option name="closed" value="true" />
+      <created>1764773862088</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1764773862088</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />

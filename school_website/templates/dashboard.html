@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5">
+    <div class="market-card p-5">
+
+        <h1 class="text-center mb-4" style="color: #4dabf7;">
+            Welcome, {{ current_user.username }} 🎉
+        </h1>
+
+        <div class="row mt-4">
+
+            <div class="col-md-4 mb-3">
+                <div class="market-card p-4 text-center">
+                    <h4 style="color:#4dabf7;">Your Profile</h4>
+                    <p>Email: <strong>{{ current_user.email }}</strong></p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="market-card p-4 text-center">
+                    <h4 style="color:#4dabf7;">Your Courses</h4>
+                    <p>Coming soon...</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="market-card p-4 text-center">
+                    <h4 style="color:#4dabf7;">Settings</h4>
+                    <p>Account options coming…</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

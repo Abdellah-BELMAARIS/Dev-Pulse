@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="text-center py-5">
+    <h1 class="display-4 mb-4" style="color: #4dabf7;">Dev Pulse </h1>
+    <p class="lead mb-4">Start purchasing professional training courses by clicking the link below</p>
+
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-8">
+            <div class="market-card p-5">
+                <h3 class="mb-4">Get Started</h3>
+                <p class="mb-4">Browse our professional training services and enroll in courses taught by industry experts.</p>
+                <a class="btn btn-market btn-lg" href="{{ url_for('services_page') }}" role="button">
+                    View Available Services
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

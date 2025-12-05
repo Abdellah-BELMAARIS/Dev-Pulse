@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container mt-4">
+
+    <h1 class="text-center mb-4" style="color:#4dabf7;">Your Cart</h1>
+
+    <div class="market-card p-4">
+
+        <table class="table table-dark table-hover text-center align-middle" id="cartTable">
+            <thead>
+                <tr>
+                    <th>Service</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Hours</th>
+                    <th>Remove</th>
+                </tr>
+            </thead>
+            <tbody id="cartBody">
+            </tbody>
+        </table>
+
+        <div class="text-end mt-4">
+            <h4>Total: <span id="totalPrice">0</span> $</h4>
+            <button class="btn btn-market mt-3" onclick="checkout()">
+                Checkout
+            </button>
+        </div>
+
+    </div>
+</div>
+
+<script>
+let cart = [];
+
+document.addEventListener("DOMContentLoaded", function() {
+    const savedCart = localStorage.getItem('trainingCart');
+    cart = savedCart ? JSON.parse(savedCart) : [];
+
+    loadCart();
+});
+
+function loadCart() {
+    const cartBody = document.getElementById("cartBody");
+    cartBody.innerHTML = "";
+
+    let total = 0;
+
+    cart.forEach((item, index) => {
+        total += item.price;
+
+        cartBody.innerHTML += `
+            <tr>
+                <td>${item.service}</td>
+                <td>${item.name}</td>
+                <td>$${item.price}</td>
+                <td>${item.hours}h</td>
+                <td>
+                    <button class="btn btn-outline-danger btn-sm" onclick="removeFromCart(${index})">
+                        Remove
+                    </button>
+                </td>
+            </tr>
+        `;
+    });
+
+    document.getElementById("totalPrice").textContent = total;
+    updateCartCount();
+}
+
+function removeFromCart(index) {
+    cart.splice(index, 1);
+    localStorage.setItem('trainingCart', JSON.stringify(cart));
+    loadCart();
+}
+
+function checkout() {
+    if (cart.length === 0) {
+        alert("Your cart is empty!");
+        return;
+    }
+
+    alert("Checkout system coming soon!");
+}
+
+function updateCartCount() {
+    const cartCount = document.getElementById("cartCount");
+
+    if (cartCount) {
+        cartCount.textContent = cart.length;
+        cartCount.style.display = cart.length > 0 ? "inline" : "none";
+    }
+}
+</script>
+{% endblock %}

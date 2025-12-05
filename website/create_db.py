@@ -1,8 +1,12 @@
+python
 import os
-import sqlite3
-from market import app, db, Item, User
-from werkzeug.security import generate_password_hash
+import sys
 
+sys.path.append(os.path.dirname(__file__))
+
+from market import app, db
+from market.models import Item, User
+from werkzeug.security import generate_password_hash
 db_path = os.path.join(os.path.dirname(__file__), 'market.db')
 
 print(f"Database path: {db_path}")
@@ -69,7 +73,7 @@ with app.app_context():
         {
             'service': 2,
             'name': "Mobile App Development Course",
-            'price': 80,
+            'price': 700,
             'hours': 67,
             'barcode': "234567890123",
             'description': "iOS and Android app development course with native or cross-platform solutions",
@@ -77,11 +81,11 @@ with app.app_context():
         },
         {
             'service': 3,
-            'name': "Design Course",
+            'name': "Web Development Course",
             'price': 450,
             'hours': 35,
             'barcode': "345678901234",
-            'description': "Design principles and practices course",
+            'description': "Web development course covering modern design principles and best practices.",
             'instructor': "Hajar BELMAARIS"
         },
         {
